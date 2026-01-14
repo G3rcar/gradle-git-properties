@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -46,8 +47,8 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-version = "2.2.4"
-group = "com.gorylenko.gradle-git-properties"
+group = project.hasProperty('group') ? project.group : 'com.gorylenko.gradle-git-properties'
+version = project.hasProperty('version') ? project.version : '2.2.4'
 
 /*gitProperties {
     keys = ['git.branch','git.commit.id','git.commit.time']
